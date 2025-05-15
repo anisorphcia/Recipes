@@ -41,7 +41,7 @@ class RecipeController {
     // 获取单个菜谱详情
     async getRecipeById(req, res) {
         try {
-            const recipe = await Recipe.findOne({ id: req.params.id });
+            const recipe = await Recipe.findOne({ _id: req.params.id });
             if (!recipe) {
                 return res.status(404).json({ error: '菜谱不存在' });
             }
