@@ -9,10 +9,7 @@ const MONGODB_URI = 'mongodb://localhost:27017/recipes';
 async function importRecipes() {
   try {
     // 连接到 MongoDB
-    await mongoose.connect(MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
+    await mongoose.connect(MONGODB_URI);
     console.log('Connected to MongoDB');
 
     // 读取 JSON 文件
