@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const { recipeRoutes, categoryRoutes, tagRoutes } = require('./routes');
+require('dotenv').config();
 
 const app = express();
 const PORT = 3000;
@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // 连接 MongoDB
-mongoose.connect('mongodb://localhost:27017/recipes')
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/recipes')
     .then(() => console.log('✅ Connected to MongoDB'))
     .catch(err => console.error('❌ MongoDB Connection Error:', err));
 
