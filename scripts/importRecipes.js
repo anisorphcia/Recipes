@@ -1,15 +1,18 @@
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 const fs = require('fs').promises;
 const path = require('path');
 const Recipe = require('../server/models/Recipe');
 
+
 // MongoDB 连接配置
-const MONGODB_URI = 'mongodb://localhost:27017/recipes';
+const MONGO_URL = process.env.MONGO_URL + '/recipes' || 'mongodb://localhost:27017/recipes';
 
 async function importRecipes() {
   try {
     // 连接到 MongoDB
-    await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(MONGO_URL);
     console.log('Connected to MongoDB');
 
     // 读取 JSON 文件
