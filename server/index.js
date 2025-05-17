@@ -9,7 +9,7 @@ const PORT = 3000;
 // 中间件
 app.use(cors());
 app.use(express.json());
-
+console.log('server mongodb at', process.env.MONGO_URL);
 // 连接 MongoDB
 mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/recipes')
     .then(() => console.log('✅ Connected to MongoDB'))
