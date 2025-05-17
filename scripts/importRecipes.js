@@ -7,7 +7,7 @@ const Recipe = require('../server/models/Recipe');
 
 
 // MongoDB 连接配置
-const MONGO_URL = process.env.MONGO_URL + '/recipes' || 'mongodb://localhost:27017/recipes';
+const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost:27017/recipes';
 
 async function importRecipes() {
   try {
